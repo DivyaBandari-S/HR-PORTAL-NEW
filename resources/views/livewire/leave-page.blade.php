@@ -1,110 +1,10 @@
 <div>
   <style>
-    .nav-buttons {
-        font-family: 'Montserrat', sans-serif;
-        text-decoration: none;
-        cursor: pointer;
-        transition: color 0.3s;
-    }
-
-    .links:hover {
-        color: blue;
-    }
-
-    .pending-accordion {
-        border: 1 solid #ccc;
-        margin-bottom: 10px;
-        font-family: 'Montserrat', sans-serif;
-        width: 90%;
-        margin: 0 auto;
-    }
-
-    .pending-accordion:hover {
-        border: 1 solid #3a9efd;
-    }
-
-    .info-paragraph {
-        display: none;
-    }
-
-    .pending-accordion-heading {
-        background-color: #fff;
-        padding: 7px;
-        cursor: pointer;
-    }
-
-    .pending-accordion-body {
-        display: none;
-        background-color: #fff;
-    }
-
-    .pending-accordion-content {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    .pending-content {
-        display: flex;
-        justify-content: start;
-        align-items: center;
-        gap: 7px;
-        margin-bottom: 5px;
-    }
-
-    .pending-accordion-title {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-    }
-
-    .active .container {
-        border-color: #3a9efd;
-        /* Blue border when active */
-    }
-
-   .side {
-    display: flex;
-    font-size: 10px;
-    flex-direction: row; 
-    width: 80%;
-    padding: 5px;
-    border-radius: 5px;
-    font-family: 'Montserrat', sans-serif;
-    gap:15px;
-    margin-left: 40px;
-    margin-top: 15px;
-    cursor:pointer;
-  }
-    .side a {
-        text-decoration: none;
-        color: #333;
-        padding: 5px;
-    }
-
     .side a.active {
         color:  rgb(2, 17, 79);
         border-bottom: 2px solid  rgb(2, 17, 79);
         border-radius: 5%;
     }
-
-    .line {
-        height: 25px;
-        width: 1px;
-        border-right: 1px solid #ccc;
-    }
-
-    .withdraw {
-        background: #3a9efd;
-        border: none;
-        font-size:12px;
-        padding: 2px 5px;
-        color: white;
-        font-weight: 500;
-        border-radius: 5px;
-    }
-    /* end of leave page */
   </style>
     <div class="toggle-container" style="width:95%;">
         @if(session()->has('message'))
@@ -117,55 +17,47 @@
             setTimeout(function() {
                 closeMessage();
             }, 5000); // Adjust the time limit (in milliseconds) as needed
-
             function closeMessage() {
                 document.querySelector('.alert-success').style.display = 'none';
             }
         </script>
         @endif
-
-        <div class="nav-buttons" >
-            <ul class="nav custom-nav-tabs"> <!-- Apply the custom class to the nav -->
-                <li class="nav-item flex-grow-1">
-                    <a class="nav-link custom-nav-link active" data-section="personalDetails" onclick="toggleDetails('personalDetails', this)">Apply</a>
+        
+        <div class="nav-buttons  d-flex justify-content-center" style="font-family: 'Montserrat', sans-serif; text-decoration: none; cursor: pointer;">
+            <ul class="nav custom-nav-tabs" style="list-style: none; display: flex; gap:10px;text-align:center;padding: 0;width:50%; font-weight:500;font-size: 12px;"> <!-- Apply the custom class to the nav -->
+                <li class="flex-grow-1">
+                    <a class="custom-nav-link active" data-section="leave" onclick="toggleDetails('leave', this)" style="color: #fff; background-color: rgb(2, 17, 79); padding: 5px; border: 1px solid  rgb(2, 17, 79); border-radius: 5px;">Apply</a>
                 </li>
-                <li class="nav-item flex-grow-1">
-                    <a class="nav-link custom-nav-link" data-section="accountDetails" onclick="toggleDetails('accountDetails', this)">Pending</a>
+                <li class="flex-grow-1">
+                    <a class="custom-nav-link active" data-section="accountDetails" onclick="toggleDetails('accountDetails', this)" style="color: #fff; padding: 5px; border: 1px solid #333; border-radius: 5px; background-color: rgb(2, 17, 79);">Pending</a>
                 </li>
-                <li class="nav-item flex-grow-1">
-                    <a class="nav-link custom-nav-link" data-section="familyDetails" onclick="toggleDetails('familyDetails', this)">History</a>
+                <li class="flex-grow-1">
+                    <a class="custom-nav-link active" data-section="familyDetails" onclick="toggleDetails('familyDetails', this)" style="color: #fff; padding: 5px; border: 1px solid #333; border-radius: 5px; background-color: rgb(2, 17, 79);">History</a>
                 </li>
             </ul>
         </div>
 
 
-        <div class="side " id="cardElement">
+
+        <div class="side" id="cardElement" style="display: flex; font-size: 12px; flex-direction: row; width: 80%; padding: 5px; border-radius: 5px; gap: 15px; margin-left: 40px; margin-top: 15px; cursor: pointer;">
 
             <div>
-
-                <a onclick="toggleOptions('leave', this)" data-section="leave">Leave</a>
-
+                <a class="active text-decoration-none text-dark" onclick="toggleOptions('leave', this)" data-section="leave">Leave</a>
             </div>
-            <div class="line"></div>
+            <div class="line" style="height: 25px;width: 1px;border-right: 1px solid #ccc;"></div>
             <div>
-
-                <a onclick="toggleOptions('restricted', this)" data-section="restricted">Restricted Holiday</a>
-
+                <a class="active text-decoration-none text-dark" onclick="toggleOptions('restricted', this)" data-section="restricted">Restricted Holiday</a>
             </div>
-            <div class="line"></div>
+            <div class="line" style="height: 25px;width: 1px;border-right: 1px solid #ccc;"></div>
             <div>
-
-                <a onclick="toggleOptions('leaveCancel', this)" data-section="leaveCancel">Leave Cancel</a>
-
+                <a class="active text-decoration-none text-dark" onclick="toggleOptions('leaveCancel', this)" data-section="leaveCancel">Leave Cancel</a>
             </div>
-            <div class="line"></div>
+            <div class="line" style="height: 25px;width: 1px;border-right: 1px solid #ccc;"></div>
             <div>
-
-                <a onclick="toggleOptions('compOff', this)" data-section="compOff">Comp Off Grant</a>
-
+                <a class="active text-decoration-none text-dark" onclick="toggleOptions('compOff', this)" data-section="compOff">Comp Off Grant</a>
             </div>
-
         </div>
+
 
  
             <div class="row" id="leave" style="width:95%; margin-top:20px; margin:0 auto;">
@@ -178,14 +70,14 @@
                 <div class="leave-pending" style=" background:#fff;  display:flex;  width:100%;flex-direction:column;justify-content:center; border:1px solid #ccc; padding:20px;gap:10px;">
                     <div class="hide-info" style="display:flex; flex-direction:row;background:#FFFFF2;gap:50px; padding:5px 10px;font-size:0.725rem; text-align:start;align-items:center;">
                         <p style="font-size:0.725rem;">Restricted Holidays (RH) are a set of holidays allocated by the company that are optional for the employee to utilize. The company sets a limit on the amount of holidays that can be used.</p>
-                        <p onclick="toggleInfo()" style="font-weight:500; color:#3a9efd;">Hide</p>
+                        <p onclick="toggleInfo()" style="font-weight:500; color:#3a9efd;cursor:pointer;">Hide</p>
                     </div>
                     <div style="display:flex; justify-content:space-between;">
                         <p style="color:#333; font-size:0.95rem; font-weight:500;text-align:start; ">Applying for Restricted Holiday</p>
-                        <p class="info-paragraph" style="font-weight:500; color:#3a9efd;font-size:0.825rem;" onclick="toggleInfo()">Info</p>
+                        <p class="info-paragraph" style="display:none;font-weight:500; color:#3a9efd;font-size:12px;cursor:pointer;" onclick="toggleInfo()">Info</p>
                     </div>
                     <img src="{{asset('/images/pending.png')}}" alt="Pending Image" style="width:40%; margin:0 auto;">
-                    <p style="color:#778899; font-size:0.825rem; font-weight:500;  text-align:center;">You have no Restricted Holiday balance, as per our record.</p>
+                    <p style="color:#778899; font-size:12px; font-weight:500;  text-align:center;">You have no Restricted Holiday balance, as per our record.</p>
                 </div>
             </div>
         </div>
@@ -226,33 +118,33 @@
 
             @foreach($this->leavePending as $leaveRequest)
 
-            <div class="leave-container mt-4">
+            <div class="leave-container rounded mt-4">
 
-                <div class="pending-accordion">
+                <div class="pending-accordion rounded" style=" border: 1px solid #ccc;margin-bottom: 10px;font-family: 'Montserrat', sans-serif;width: 90%;  margin: 0 auto;">
 
-                    <div class="pending-accordion-heading" onclick="toggleAccordion(this)">
+                    <div class="pending-accordion-heading rounded" style=" background-color: #fff;padding: 7px;cursor: pointer;" onclick="toggleAccordion(this)">
 
-                        <div class="pending-accordion-title">
+                        <div class="pending-accordion-title" style=" display: flex;flex-direction: row;justify-content: space-between;">
 
                             <!-- Display leave details here based on $leaveRequest -->
 
-                            <div class="pending-accordion-content">
+                            <div class="pending-accordion-content" style="display: flex;flex-direction: column; justify-content: space-between; align-items: center;">
 
-                                <span >Category</span>
+                                <span style="color: #778899; font-size: 12px; font-weight: 500;">Category</span>
 
                                 <span style="color: #36454F; font-size: 12px; font-weight: 500;">Leave</span>
 
                             </div>
 
-                            <div class="pending-accordion-content">
+                            <div class="pending-accordion-content" style="display: flex;flex-direction: column; justify-content: space-between; align-items: center;">
 
-                                <span >Leave Type</span>
+                                <span style="color: #778899; font-size: 12px; font-weight: 500;" >Leave Type</span>
 
                                 <span style="color: #36454F; font-size: 12px; font-weight: 500;">{{ $leaveRequest->leave_type}}</span>
 
                             </div>
 
-                            <div class="pending-accordion-content">
+                            <div class="pending-accordion-content" style="display: flex;flex-direction: column; justify-content: space-between; align-items: center;">
 
                                 <span style="color: #778899; font-size: 12px; font-weight: 500;">No. of Days</span>
 
@@ -267,13 +159,13 @@
 
                             <!-- Add other details based on your leave request structure -->
 
-                            <div class="pending-accordion-content">
+                            <div class="pending-accordion-content" style="display: flex;flex-direction: column; justify-content: space-between; align-items: center;">
 
                                 <span style="margin-top:0.625rem; font-size: 12px; font-weight: 400; color:#cf9b17;">{{ strtoupper($leaveRequest->status) }}</span>
 
                             </div>
 
-                            <div class="arrow-btn" >
+                            <div class="arrow-btn" style="color:#778899;height:22px; width:22px; display:flex;justify-content:center;align-items:center; border-radius:50%;border: 1px solid #DCDCDC;">
                                  <i class="fa fa-angle-down"></i>
                             </div>
 
@@ -281,11 +173,11 @@
 
                     </div>
 
-                    <div class="pending-accordion-body p-0">
+                    <div class="pending-accordion-body p-0" style="display: none;background-color: #fff;">
 
                         <div style="width:100%; height:1px; border-bottom:1px solid #ccc; margin-bottom:10px;"></div>
 
-                        <div class="pending-content px-2">
+                        <div class="pending-content px-2" style=" display: flex;justify-content: start;align-items: center;gap: 7px;margin-bottom: 5px;">
 
                             <span style="color: #778899; font-size:11px; font-weight: 500;">Duration:</span>
 
@@ -303,7 +195,7 @@
 
                         </div>
 
-                        <div class="pending-content px-2">
+                        <div class="pending-content px-2" style=" display: flex;justify-content: start;align-items: center;gap: 7px;margin-bottom: 5px;">
 
                             <span style="color: #778899; font-size: 11px; font-weight: 500;">Reason:</span>
 
@@ -315,7 +207,7 @@
 
                         <div style="display:flex; flex-direction:row; justify-content:space-between;">
 
-                            <div class="pending-content px-2">
+                            <div class="pending-content px-2" style=" display: flex;justify-content: start;align-items: center;gap: 7px;margin-bottom: 5px;">
 
                                 <span style="color: #778899; font-size: 11px; font-weight: 400;">Applied on:</span>
 
@@ -323,14 +215,14 @@
 
                             </div>
 
-                            <div class="pending-content px-2">
+                            <div class="pending-content px-2" style=" display: flex;justify-content: start;align-items: center;gap: 7px;margin-bottom: 5px;">
 
                                 <a href="{{ route('leave-history', ['leaveRequestId' => $leaveRequest->id]) }}">
 
-                                    <span style="color: #3a9efd; font-size: 1; ">View Details</span>
+                                    <span style="color: #3a9efd; font-size: 12px; ">View Details</span>
 
                                 </a>
-                                <button class="withdraw" wire:click="cancelLeave({{ $leaveRequest->id }})">Withdraw</button>
+                                <button class="withdraw" style=" background: #3a9efd;border: none;font-size:12px;padding: 2px 5px;color: white;font-weight: 500; border-radius: 5px;"wire:click="cancelLeave({{ $leaveRequest->id }})">Withdraw</button>
 
                             </div>
 
@@ -367,37 +259,37 @@
 
             @foreach($this->leaveRequests->whereIn('status', ['approved', 'rejected','Withdrawn']) as $leaveRequest)
 
-            <div class="pending-leaves mt-4">
+            <div class="pending-leaves rounded mt-4">
 
-                <div class="pending-accordion">
+                <div class="pending-accordion rounded" style=" border: 1px solid #ccc;margin-bottom: 10px;font-family: 'Montserrat', sans-serif;width: 90%;  margin: 0 auto;">
 
-                    <div class="pending-accordion-heading" onclick="toggleAccordion(this)">
+                    <div class="pending-accordion-heading rounded" style=" background-color: #fff;padding: 7px;cursor: pointer;" onclick="toggleAccordion(this)">
 
-                        <div class="pending-accordion-title">
+                        <div class="pending-accordion-title rounded" style=" display: flex;flex-direction: row;justify-content: space-between;">
 
                             <!-- Display leave details here based on $leaveRequest -->
 
-                            <div class="pending-accordion-content">
+                            <div class="pending-accordion-content" style="display: flex;flex-direction: column; justify-content: space-between; align-items: center;">
 
-                                <span style="color: #778899; font-size: 0.825rem; font-weight: 500;">Category</span>
+                                <span style="color: #778899; font-size: 12px; font-weight: 500;">Category</span>
 
-                                <span style="color: #36454F; font-size: 0.825rem; font-weight: 500;">Leave</span>
-
-                            </div>
-
-                            <div class="pending-accordion-content">
-
-                                <span style="color: #778899; font-size: 0.825rem; font-weight: 500;">Leave Type</span>
-
-                                <span style="color: #36454F; font-size: 0.825rem; font-weight: 500;">{{ $leaveRequest->leave_type}}</span>
+                                <span style="color: #36454F; font-size: 12px; font-weight: 500;">Leave</span>
 
                             </div>
 
-                            <div class="pending-accordion-content">
+                            <div class="pending-accordion-content" style="display: flex;flex-direction: column; justify-content: space-between; align-items: center;">
 
-                                <span style="color: #778899; font-size: 0.825rem; font-weight: 500;">No. of Days</span>
+                                <span style="color: #778899; font-size: 12px; font-weight: 500;">Leave Type</span>
 
-                                <span style="color: #36454F; font-size: 0.825rem; font-weight: 500;">
+                                <span style="color: #36454F; font-size: 12px; font-weight: 500;">{{ $leaveRequest->leave_type}}</span>
+
+                            </div>
+
+                            <div class="pending-accordion-content" style="display: flex;flex-direction: column; justify-content: space-between; align-items: center;">
+
+                                <span style="color: #778899; font-size: 12px; font-weight: 500;">No. of Days</span>
+
+                                <span style="color: #36454F; font-size: 12px; font-weight: 500;">
 
                                     {{ $this->calculateNumberOfDays($leaveRequest->from_date, $leaveRequest->from_session, $leaveRequest->to_date, $leaveRequest->to_session) }}
 
@@ -411,25 +303,25 @@
 
 
 
-                            <div class="pending-accordion-content">
+                            <div class="pending-accordion-content" style="display: flex;flex-direction: column; justify-content: space-between; align-items: center;">
 
                                 @if(strtoupper($leaveRequest->status) == 'APPROVED')
 
-                                <span style="margin-top:0.625rem; font-size: 0.825rem; font-weight: 500; color:#32CD32;">{{ strtoupper($leaveRequest->status) }}</span>
+                                <span style="margin-top:0.625rem; font-size: 12px; font-weight: 500; color:#32CD32;">{{ strtoupper($leaveRequest->status) }}</span>
 
                                 @elseif(strtoupper($leaveRequest->status) == 'REJECTED')
 
-                                <span style="margin-top:0.625rem; font-size: 0.825rem; font-weight: 500; color:#FF0000;">{{ strtoupper($leaveRequest->status) }}</span>
+                                <span style="margin-top:0.625rem; font-size: 12px; font-weight: 500; color:#FF0000;">{{ strtoupper($leaveRequest->status) }}</span>
 
                                 @else
 
-                                <span style="margin-top:0.625rem; font-size: 0.825rem; font-weight: 500; color:#778899;">{{ strtoupper($leaveRequest->status) }}</span>
+                                <span style="margin-top:0.625rem; font-size: 12px; font-weight: 500; color:#778899;">{{ strtoupper($leaveRequest->status) }}</span>
 
                                 @endif
 
                             </div>
 
-                            <div class="arrow-btn" >
+                            <div class="arrow-btn" style="color:#778899;height:22px; width:22px; display:flex;justify-content:center;align-items:center; border-radius:50%;border: 1px solid #DCDCDC;" >
                                  <i class="fa fa-angle-down"></i>
                             </div>
 
@@ -437,21 +329,21 @@
 
                     </div>
 
-                    <div class="pending-accordion-body">
+                    <div class="pending-accordion-body p-0" style="display: none;background-color: #fff;">
 
                         <div style="width:100%; height:1px; border-bottom:1px solid #ccc; margin-bottom:10px;"></div>
 
-                        <div class="pending-content px-2">
+                        <div class="pending-content px-2" style=" display: flex;justify-content: start;align-items: center;gap: 7px;margin-bottom: 5px;">
 
-                            <span style="color: #778899; font-size: 0.825rem; font-weight: 500;">Duration:</span>
+                            <span style="color: #778899; font-size:12px; font-weight: 500;">Duration:</span>
 
-                            <span style="font-size: 0.8125rem;">
+                            <span style="font-size:10px;">
 
-                                <span style="font-size: 0.8125rem; font-weight: 500;">{{ $leaveRequest->formatted_from_date }}</span>
+                                <span style="font-size:10px; font-weight: 500;">{{ $leaveRequest->formatted_from_date }}</span>
 
                                 ({{ $leaveRequest->from_session }} ) to
 
-                                <span style="font-size: 0.8125rem; font-weight: 500;">{{ $leaveRequest->formatted_to_date }}</span>
+                                <span style="font-size:10px; font-weight: 500;">{{ $leaveRequest->formatted_to_date }}</span>
 
                                 ( {{ $leaveRequest->to_session }} )
 
@@ -459,11 +351,11 @@
 
                         </div>
 
-                        <div class="pending-content px-2">
+                        <div class="pending-content px-2" style=" display: flex;justify-content: start;align-items: center;gap: 7px;margin-bottom: 5px;">
 
-                            <span style="color: #778899; font-size: 0.825rem; font-weight: 500;">Reason:</span>
+                            <span style="color: #778899; font-size:12px; font-weight: 500;">Reason:</span>
 
-                            <span style="font-size: 0.8125rem;">{{ $leaveRequest->reason }}</span>
+                            <span style="font-size:10px;">{{ ucfirst($leaveRequest->reason) }}</span>
 
                         </div>
 
@@ -471,18 +363,18 @@
 
                         <div style="display:flex; flex-direction:row; justify-content:space-between;">
 
-                            <div class="pending-content px-2">
+                            <div class="pending-content px-2" style=" display: flex;justify-content: start;align-items: center;gap: 7px;margin-bottom: 5px;">
 
-                                <span style="color: #778899; font-size: 0.825rem; font-weight: 400;">Applied on:</span>
+                                <span style="color: #778899; font-size: 12px; font-weight: 400;">Applied on:</span>
 
-                                <span style="color: #333; font-size: 0.825rem; font-weight: 500;">{{ $leaveRequest->created_at->format('d M, Y') }}</span>
+                                <span style="color: #333; font-size: 12px; font-weight: 500;">{{ $leaveRequest->created_at->format('d M, Y') }}</span>
 
                             </div>
 
-                            <div class="pending-content px-2">
+                            <div class="pending-content px-2" style=" display: flex;justify-content: start;align-items: center;gap: 7px;margin-bottom: 5px;">
 
                                 <a href="{{ route('leave-pending', ['leaveRequestId' => $leaveRequest->id]) }}">
-                                    <span style="color: #3a9efd; font-size: 0.825rem; font-weight: 500;">View Details</span>
+                                    <span style="color: #3a9efd; font-size: 12px; font-weight: 500;">View Details</span>
                                 </a>
 
                             </div>
@@ -526,20 +418,15 @@
     }
 
     function toggleDetails(sectionId, clickedLink) {
-        const tabs = ['leave', 'accountDetails', 'familyDetails'];
 
         const links = document.querySelectorAll('.custom-nav-link');
         links.forEach(link => link.classList.remove('active'));
 
         clickedLink.classList.add('active');
-
+        const tabs = ['leave', 'accountDetails', 'familyDetails'];
         tabs.forEach(tab => {
             const tabElement = document.getElementById(tab);
-            if (tab === sectionId) {
-                tabElement.style.display = 'block';
-            } else {
-                tabElement.style.display = 'none';
-            }
+        tabElement.style.display = tab === sectionId ? 'block' : 'none';
         });
         // Hide the content of other containers
         const otherContainers = ['restricted', 'leaveCancel', 'compOff'];

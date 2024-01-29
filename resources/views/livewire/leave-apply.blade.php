@@ -1,7 +1,8 @@
 <div>
 <body>
 
-<div class="applyContainer">
+<div class="applyContainer" style="border: 1px solid #DCDCDC;border-radius: 10px;box-shadow: 1px 2px 2px 2px #F5F5F5; width: 100%; margin: 10px auto; background: #FFFFFF;
+    padding:10px 15px;">
     <h6 class="pb-3">Applying for Leave</h6> 
     @if ($errors->any())
     <div class="alert alert-danger">
@@ -16,7 +17,7 @@
     <form wire:submit.prevent="leaveApply" enctype="multipart/form-data">
         <div class="form-group mt-2">
             <label for="leaveType">Leave type</label>
-                <select class="form-control" wire:model="leave_type" id="leaveType" name="leaveType" style="width: 50%; font-weight: 400; color: #778899;" onchange="toggleReporting()">
+                <select class="form-control" wire:model="leave_type" id="leaveType" name="leaveType" style="width: 50%; font-weight: 400;font-size: 12px; color: #778899;" onchange="toggleReporting()">
                     <option value="default">Select Type</option>
                     <option value="Causal Leave Probation">Casual Leave</option>
                     <option value="Loss of Pay">Loss of Pay</option>
@@ -29,35 +30,44 @@
                 </select>
                   @error('leave_type') <span class="text-danger">{{ $message }}</span> @enderror
             </div>
-             <div class="form-row">
-            <div class="form-group mt-2 col-md-6">
-                <label for="fromDate" >From date</label>
-                <input type="date" wire:model="from_date" class="form-control" id="fromDate" name="fromDate" style="color: #778899;">
-            </div>
-            <div class="form-group mt-2 col-md-6">
-                <label for="session" >Session</label>
-                <select class="form-control" wire:model="from_session" id="session" name="session" style="font-weight: 500; ">
-                    <option value="default">Select session</option>
-                    <option value="Session 1">Session 1</option>
-                    <option value="Session 2">Session 2</option>
-                </select>
-            </div>
-            @error('from_date') <span class="text-danger">{{ $message }}</span> @enderror
-        </div>
-        <div class="form-row">
-                <div class="form-group mt-2 col-md-6">
-                    <label for="toDate" >To date</label>
-                    <input type="date" wire:model="to_date" class="form-control" id="toDate" name="toDate" style="color: #778899;">
+            <div class="d-flex m-0 p-0 gap-2 ">
+                <div class="col-md-6 p-0">
+                    <div class="form-group">
+                        <label for="fromDate" >From date</label>
+                        <input type="date" wire:model="from_date" class="form-control" id="fromDate" name="fromDate" style="color: #778899;">
+                    </div>
                 </div>
-                <div class="form-group mt-2 col-md-6">
-                    <label for="session" >Session</label>
-                    <select class="form-control" wire:model="to_session" id="session" name="session" style="font-weight: 500;">
-                        <option value="default" style="font-size:12px;">Select session</option>
-                        <option value="Session 1">Session 1</option>
-                        <option value="Session 2">Session 2</option>
-                    </select>
+                <div class="col-md-6 p-0">
+                    <div class="form-group">
+                        <label for="session" >Session</label>
+                        <select class="form-control" wire:model="from_session" id="session" name="session" style="font-weight: 500; ">
+                            <option value="default">Select session</option>
+                            <option value="Session 1">Session 1</option>
+                            <option value="Session 2">Session 2</option>
+                        </select>
+                    </div>
+                   @error('from_date') <span class="text-danger">{{ $message }}</span> @enderror
                 </div>
-                @error('to_date') <span class="text-danger">{{ $message }}</span> @enderror
+            </div>
+            
+        <div class="d-flex m-0 p-0 gap-2">
+                <div class="col-md-6 p-0">
+                    <div class="form-group">
+                        <label for="toDate" >To date</label>
+                        <input type="date" wire:model="to_date" class="form-control" id="toDate" name="toDate" style="color: #778899;">
+                    </div>
+                </div>
+                <div class="col-md-6 p-0">
+                    <div class="form-group">
+                        <label for="session" >Session</label>
+                        <select class="form-control" wire:model="to_session" id="session" name="session" style="font-weight: 500;">
+                            <option value="default" style="font-size:12px;">Select session</option>
+                            <option value="Session 1">Session 1</option>
+                            <option value="Session 2">Session 2</option>
+                        </select>
+                    </div>
+                    @error('to_date') <span class="text-danger">{{ $message }}</span> @enderror
+                </div>
             </div>
        
             <div>
@@ -69,13 +79,13 @@
                     </div>
                 </div>
 
-                <div class="reporting " style="display:none;" >
+                <div class="reporting border" style="display:none; width:280px;" >
                     <div>
-                        <img src="https://w7.pngwing.com/pngs/178/595/png-transparent-user-profile-computer-icons-login-user-avatars.png" alt="Default User Image" style="width: 40px; height: 40px; border-radius: 50%;">
+                        <img src="https://w7.pngwing.com/pngs/178/595/png-transparent-user-profile-computer-icons-login-user-avatars.png" alt="Default User Image" style="width: 30px; height: 30px; border-radius: 50%;">
                     </div>
                     <div class="center">
-                        <p id="reportToText" class="ellipsis" >{{$reportTo}}</p>
-                        <p style="margin-top:-20px; color:#778899; font-size:0.69rem;" id="managerIdText"><span class="remaining" >#{{$managerId}}</span></p>
+                        <p id="reportToText" class="ellipsis" style="font-size:12px;font-weight:500; white-space: nowrap;overflow: hidden;text-overflow: ellipsis;max-width: 200px; display: inline-block;">{{$reportTo}}</p>
+                        <p style="margin-top:-10px; color:#778899; font-size:10px;" id="managerIdText"><span class="remaining" >#{{$managerId}}</span></p>
                     </div>
                     <div class="downArrow" onclick="toggleSearchContainer()">
                         <i class="fas fa-chevron-down"></i>
@@ -83,7 +93,7 @@
                        <!-- Details to show on hover -->
                    
                 </div>
-                <div class="searchContainer" style="display:none;">
+                <div class="searchContainer" style="display:none; width:50%; max-height:300px;">
                     <!-- Content for the search container -->
                     <div class="row px-2 py-0 mb-1" >
                         <div class="col m-0 p-0">
@@ -98,14 +108,14 @@
                         </div>
                     </div>
                     @foreach($employeeDetails as $employee)
-                        <div class="d-flex gap-1" onclick="updateApplyingTo('{{ $employee['report_to']}}' , '{{ $employee['manager_id'] }}')">
+                        <div class="d-flex gap-3 align-item-center" onclick="updateApplyingTo('{{ $employee['report_to']}}' , '{{ $employee['manager_id'] }}')">
                             <div>
                               <input type="checkbox" wire:model="selectedManager" value="{{ $employee['manager_id'] }}">
                             </div>
-                               <img src="https://w7.pngwing.com/pngs/178/595/png-transparent-user-profile-computer-icons-login-user-avatars.png" alt="Default User Image" style="width: 40px; height: 40px; border-radius: 50%;">
-                            <div class="center">
-                                <p style=" font-size:0.825rem; font-weight:500;"value="{{ $employee['report_to'] }}">{{ $employee['report_to'] }}</p>
-                                <p style="margin-top:-15px; color:#778899; font-size:0.69rem;" value="{{ $employee['manager_id'] }}">#{{ $employee['manager_id'] }}</p>
+                               <img src="https://w7.pngwing.com/pngs/178/595/png-transparent-user-profile-computer-icons-login-user-avatars.png" alt="Default User Image" style="width: 30px; height: 30px; border-radius: 50%;">
+                            <div class="center ">
+                                <p style=" font-size:12px; font-weight:500;"value="{{ $employee['report_to'] }}">{{ $employee['report_to'] }}</p>
+                                <p style="margin-top:-5px; color:#778899; font-size:10px;" value="{{ $employee['manager_id'] }}">#{{ $employee['manager_id'] }}</p>
                             </div>
                         </div>
                     @endforeach
@@ -124,10 +134,10 @@
                 </a>
                 <span class="text-2 text-secondary placeholder" id="ccPlaceholder" style="margin-top: 5px; background: transparent; color: #ccc;">Add</span>   
     
-               <div id="addedEmails" style="display: flex; gap: 10px; "></div>
+               <div id="addedEmails" ></div>
             
             </div>
-            <div class="ccContainer" style="display:none;">
+            <div class="ccContainer" style="display:none;width:50%; max-height:300px;">
                     <!-- Content for the search container -->
                     <div class="row" style="padding: 0 15px; margin-bottom: 10px;">
                         <div class="col" style="margin: 0px; padding: 0px">
@@ -143,12 +153,14 @@
                     </div>
                     
                     @foreach($ccRecipients as $employee)
-                        <div style="display:flex; gap:10px;"onclick="addEmail('{{ $employee['full_name'] }}')">
-                        <input type="checkbox" wire:model="selectedPeople" value="{{ $employee['emp_id'] }}">
-                            <img src="{{ $employee['image'] ? $employee['image'] : 'https://w7.pngwing.com/pngs/178/595/png-transparent-user-profile-computer-icons-login-user-avatars.png' }}" alt="User Image" style="width: 40px; height: 40px; border-radius: 50%;">
-                            <div class="center">
-                                <p style="font-size: 0.875rem; font-weight: 500;">{{ $employee['full_name'] }}</p>
-                                <p style="margin-top: -15px; color: #778899; font-size: 0.69rem;">#{{ $employee['emp_id'] }}</p>
+                        <div style="display:flex; gap:10px; align-items:center;"onclick="addEmail('{{ $employee['full_name'] }}')">
+                            <input type="checkbox" wire:model="selectedPeople" value="{{ $employee['emp_id'] }}">
+                            <img src="{{ $employee['image'] ? $employee['image'] : 'https://w7.pngwing.com/pngs/178/595/png-transparent-user-profile-computer-icons-login-user-avatars.png' }}" alt="User Image" style="width: 30px; height: 30px; border-radius: 50%;">
+                            <div class="center mt-3">
+                                <p style="font-size: 12px; font-weight: 500;">{{ $employee['full_name'] }} <br>
+                                <span style=" color: #778899; font-size: 10px;">#{{ $employee['emp_id'] }}</span>
+                            </p>
+                                
                             </div>
                         </div>
                     @endforeach

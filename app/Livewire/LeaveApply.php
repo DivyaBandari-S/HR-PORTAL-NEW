@@ -174,7 +174,7 @@ class LeaveApply extends Component
         ]);
         $this->reset();
         session()->flash('message', 'Leave application submitted successfully!');
-        return redirect()->to('/leave-page');
+        return redirect('/leave-page');
     }
 
     public function render()

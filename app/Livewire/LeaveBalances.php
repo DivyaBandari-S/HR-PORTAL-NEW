@@ -1,6 +1,6 @@
 <?php
 // Created by : Bandari Divya
-// About this component: It shows remaining and used leaves (leave balance)
+// About this component: It shows remaining leaves and consumed leaves (leave balance)
 namespace App\Livewire;
 
 use Illuminate\Support\Carbon;
@@ -17,9 +17,6 @@ class LeaveBalances extends Component
     public $sickLeavePerYear = 12; 
     public $casualLeavePerYear = 12;
     public $lossOfPayPerYear = 0;
-    public $sickLeaveForYear2024 = 12; 
-    public $casualLeaveForYear2024 = 12; 
-    public $lossOfPayLeaveForYear2024 = 0;
     public $sickLeaveBalance;
     public $casualLeaveBalance;
     public $lossOfPayBalance;
@@ -35,12 +32,10 @@ class LeaveBalances extends Component
     public $consumedSickLeaves;
     public $consumedCasualLeaves;
     public $consumedLossOfPayLeaves;
-  
     public $sortBy = 'oldest_first'; 
     public $selectedYear;
     public $show2022Content = false;
     public $show2023Content = false;
-
     public $totalCausalDays;
     public $totalSickDays;
     public $totalLossOfPayDays;
@@ -110,6 +105,7 @@ class LeaveBalances extends Component
         $this->employeeDetails = EmployeeDetails::where('emp_id', $employeeId)->first();
 
         $percentageCasual = ($this->consumedCasualLeaves / $this->casualLeavePerYear) * 100;
+
         $percentageSick = ($this->consumedSickLeaves / $this->sickLeavePerYear) * 100;
         $this->yearDropDown();
         // Check if employeeDetails is not null before accessing its properties
@@ -241,8 +237,6 @@ class LeaveBalances extends Component
             }
 
             return $totalDays;
-            
-
         } catch (\Exception $e) {
             return 'Error: ' . $e->getMessage();
         }
@@ -274,5 +268,3 @@ class LeaveBalances extends Component
     }
   
     }
-
-

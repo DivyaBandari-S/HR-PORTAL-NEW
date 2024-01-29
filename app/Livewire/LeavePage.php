@@ -13,6 +13,7 @@ use Carbon\Carbon;
 class LeavePage extends Component
 {
     public $employeeDetails = [];
+    public $activeTab = 'active';
     public $employeeId;
     public $leaveRequests;
     public $leavePending;

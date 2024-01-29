@@ -24,9 +24,30 @@ class EmployeesReview extends Component
     public $searchTerm = '';
     public $filterData;
     public $selectedYear;
+    public $activeButton;
+    
+    public $currentSection = 'Attendance Regularization';
+    public function showContent($section)
+    {
+        $this->currentSection = $section;
+    }
+  
+    public function toggleContent($section)
+    {
+        $this->activeButton[$section] = !$this->activeButton[$section];
+    }
 
-   
    public function mount(){
+    $this->activeButton = [
+        'Attendance Regularization' => true,
+        'Confirmation' => true,
+        'Resignations' => true,
+        'Helpdesk' => true,
+        'Leave' => true,
+        'Leave Cancel' => true,
+        'Leave Comp Off' => true,
+        'Restricted Holiday' => true,
+    ];
 
     $this->selectedYear = Carbon::now()->format('Y');
    }

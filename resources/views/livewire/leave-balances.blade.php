@@ -84,9 +84,9 @@
 
      
 
-    <div class="buttons-container">
-    <button class="button1" onclick="window.location.href='/leave-page'">Apply</button>
-        <button type="button" class="button2" data-toggle="modal" data-target="#exampleModalCenter">
+    <div class="buttons-container d-flex justify-content-end ">
+    <button class="bg-white py-1 px-3 mr-2 rounded" style="border:1px solid rgb(2, 17, 79); font-size:12px;font-weight:500;" onclick="window.location.href='/leave-page'">Apply</button>
+        <button type="button" class="mr-2 rounded bg-white" style="border:1px solid rgb(2, 17, 79);" data-toggle="modal" data-target="#exampleModalCenter">
             <i class="fa-solid fa-download"></i>
        </button>
        <select class="dropdown bg-white " wire:model="selectedYear" wire:change="yearDropDown">
@@ -187,7 +187,7 @@
         <div class="bal-container" >
          <div class="row" style="margin:10px auto;">
             <div class="col-md-4">
-                <div class="leave-bal mb-2 bg-white rounded border p-3bg-white rounded border " style="height:200px;">
+                <div class="leave-bal mb-2 bg-white rounded border p-3 " style="height:200px;">
                     <div class="balance d-flex flex-row justify-content-between " style="font-size:12px; color:#778899;">
                         <div class="field">
                             <span class="leave-type font-weight-500" >Loss Of Pay</span>
@@ -198,7 +198,7 @@
                     </div>
                     <div class="center text-center" style="margin-top:50px;" >
                         <h5 style="font-size:16px;">0</h5>
-                        <p style="margin-top:-15px;"><span class="remaining" >balance</span></p>
+                        <p style="margin-top:-13px;font-size:11px;color:#778899;"><span class="remaining" >Balance</span></p>
                     </div>
                 </div>
             </div>
@@ -223,13 +223,10 @@
                 </div>
                 <div class="center text-center" style="margin-top:50px;">
                     <h5 style="font-size:16px;">0</h5>
-                    <p style="margin-top:-15px;"><span class="remaining">balance</span></p>
-                    <a href="#" class="view" style="font-size:0.9rem;">View Details</a>
+                    <p style="margin-top:-13px;font-size:11px;color:#778899;"><span class="remaining">Balance</span></p>
+                    <a href="#" class="view" style="font-size:12px;">View Details</a>
                 </div>
-                <div class="tube-container">
-                    <p style="color: #778899; font-size: 10px; text-align:start; margin-top:-15px;font-weight: 400;">0 of {{ $grantedLeave }} Consumed</p>
-                    <div class="tube" style="width: 0%; background-color: #1E90FF;"></div> <!-- Adjust the width and color based on your usage -->
-                </div>
+                
             </div>
               </div>
                 <div class="col-md-4">
@@ -244,13 +241,10 @@
                          </div>
                          <div class="center text-center" style="margin-top:50px;" >
                              <h5 style="font-size:16px;">0</h5>
-                             <p style="margin-top:-15px;"><span class="remaining" >balance</span></p>
-                             <a href="#" style="font-size:0.9rem;">View Details</a>
+                             <p style="margin-top:-13px;font-size:11px;color:#778899;"><span class="remaining" >Balance</span></p>
+                             <a href="#" style="font-size:12px;">View Details</a>
                         </div>
-                        <div class="tube-container">
-                                <p style="color: #778899; font-size: 10px; text-align:start; margin-top:-15px;font-weight: 400;">0 of {{ $grantedLeave }} Consumed</p>
-                                <div class="tube" style="width: 0%; background-color: #1E90FF;"></div> <!-- Adjust the width and color based on your usage -->
-                            </div>
+                        
                         </div>
                     </div>
                 </div>
@@ -268,13 +262,10 @@
                          </div>
                             <div class="center text-center" style="margin-top:50px;" >
                                 <h5 style="font-size:16px;">0</h5>
-                                <p style="margin-top:-15px;"><span class="remaining" >balance</span></p>
-                                <a href="#" style="font-size:0.9rem;">View Details</a>
+                                <p style="margin-top:-13px;font-size:11px;color:#778899;"><span class="remaining" >Balance</span></p>
+                                <a href="#" style="font-size:12px;">View Details</a>
                             </div>
-                            <div class="tube-container">
-                                <p style="color: #778899; font-size: 10px; text-align:start; margin-top:-15px;font-weight: 400;">0 of {{ $grantedLeave }} Consumed</p>
-                                <div class="tube" style="width: 0%; background-color: #1E90FF;"></div> <!-- Adjust the width and color based on your usage -->
-                            </div>
+                            
                         </div>
                     </div>
                 </div>
@@ -298,7 +289,7 @@
                     </div>
                     <div class="center text-center" style="margin-top:50px;" >
                         <h5 style="font-size:16px;">0 </h5>
-                        <p style="margin-top:-15px;"><span class="remaining" >balance</span></p>
+                        <p style="margin-top:-13px;font-size:11px;color:#778899;"><span class="remaining" >Balance</span></p>
                     </div>
                 </div>
             </div>
@@ -323,13 +314,10 @@
                 </div>
                 <div class="center text-center" style="margin-top:50px;">
                     <h5 style="font-size:16px;">0</h5>
-                    <p style="margin-top:-15px;"><span class="remaining">balance</span></p>
-                    <a href="#" class="view" style="font-size:0.9rem;">View Details</a>
+                    <p style="margin-top:-13px;font-size:11px;color:#778899;"><span class="remaining">Balance</span></p>
+                    <a href="#" class="view" style="font-size:12px;">View Details</a>
                 </div>
-                <div class="tube-container">
-                    <p style="color: #778899; font-size: 10px; text-align:start; margin-top:-15px;font-weight: 400;">0 of {{ $grantedLeave }} Consumed</p>
-                    <div class="tube" style="width: 0%; background-color: #1E90FF;"></div> <!-- Adjust the width and color based on your usage -->
-                </div>
+               
             </div>
               </div>
                 <div class="col-md-4">
@@ -344,15 +332,10 @@
                          </div>
                          <div class="center text-center" style="margin-top:50px;" >
                              <h5 style="font-size:16px;">0</h5>
-                             <p style="margin-top:-15px;"><span class="remaining" >balance</span></p>
-                             <a href="#" style="font-size:0.9rem;">View Details</a>
+                             <p style="margin-top:-13px;font-size:11px;color:#778899;"><span class="remaining" >Balance</span></p>
+                             <a href="#" style="font-size:12px;">View Details</a>
                         </div>
-                            <div class="tube-container">
-                            <p style="color: #778899; font-size: 10px; text-align: start; margin-top: -15px; font-weight: 400;">
-                                        {{ $casualLeavePerYear }} of {{ $casualLeavePerYear }} Consumed
-                                </p>
-                               <div class="tube" style="width: 100%; background-color: #1E90FF;"></div>
-                            </div>
+                           
                         </div>
                     </div>
                 </div>
@@ -370,15 +353,10 @@
                          </div>
                             <div class="center text-center" style="margin-top:50px;" >
                                 <h5 style="font-size:16px;">0</h5>
-                                <p style="margin-top:-15px;"><span class="remaining" >balance</span></p>
-                                <a href="#" style="font-size:0.9rem;">View Details</a>
+                                <p style="margin-top:-13px;font-size:11px;color:#778899;"><span class="remaining" >Balance</span></p>
+                                <a href="#" style="font-size:12px;">View Details</a>
                             </div>
-                            <div class="tube-container">
-                            <p style="color: #778899; font-size: 10px; text-align: start; margin-top: -15px; font-weight: 400;">
-                                        {{ $sickLeavePerYear }} of {{ $sickLeavePerYear }} Consumed
-                                </p>
-                            <div class="tube" style="width: 100%; background-color: #1E90FF;"></div>
-                            </div>
+                            
                         </div>
                     </div>
             </div>
@@ -429,12 +407,9 @@
                 <div class="center text-center" style="margin-top:50px;">
                     <h5 style="font-size:16px;">0</h5>
                     <p style="margin-top:-14px;font-size:11px;color:#778899;"><span class="remaining">Balance</span></p>
-                    <a href="#" class="view" style="font-size:0.9rem;">View Details</a>
+                    <a href="#" class="view" style="font-size:12px;">View Details</a>
                 </div>
-                <div class="tube-container">
-                    <p>0 of {{ $grantedLeave }} Consumed</p>
-                    <div class="tube" style="width: 0%; background-color: #1E90FF;transition: width 0.3s ease-in-out, background-color 0.3s ease-in-out;"></div> <!-- Adjust the width and color based on your usage -->
-                </div>
+               
             </div>
               </div>
                 <div class="col-md-4">
@@ -450,12 +425,9 @@
                          <div class="center text-center" style="margin-top:50px;" >
                              <h5 >{{$casualLeaveBalance}}</h5>
                              <p style="margin-top:-13px;font-size:11px;color:#778899;"><span class="remaining" >Balance</span></p>
-                             <a href="#" style="font-size:0.9rem;">View Details</a>
+                             <a href="#" style="font-size:12px;">View Details</a>
                         </div>
-                        <div class="tube-container">
-                                <p style="color: #778899; font-size: 10px; text-align:start; margin-top:-15px;font-weight: 400;">0 of {{ $casualLeaveForYear2024 }} Consumed</p>
-                                <div class="tube" style="width: 0%; background-color: #1E90FF;"></div> 
-                            </div>
+                       
                         </div>
                     </div>
                 </div>
@@ -474,65 +446,51 @@
                             <div class="center text-center" style="margin-top:50px;" >
                                 <h5 style="font-size:16px;">{{ $sickLeaveBalance }}</h5>
                                 <p style="margin-top:-13px;font-size:11px;color:#778899;"><span class="remaining" >Balance</span></p>
-                                <a href="#" style="font-size:0.9rem;">View Details</a>
+                                <a href="#" style="font-size:12px;">View Details</a>
                             </div>
-                            <div class="tube-container">
-                                <p style="color: #778899; font-size: 10px; text-align:start; margin-top:-15px;font-weight: 400;">0 of {{ $sickLeaveForYear2024 }} Consumed</p>
-                                <div class="tube" style="width: 0%; background-color: #1E90FF;"></div> <!-- Adjust the width and color based on your usage -->
-                            </div>
+                           
                         </div>
                     </div>
                 </div>
            </div>
         </div>
-<!-- Initialize Datepicker -->
 <script>
     $(document).ready(function() {
         console.log("Document ready!");
 
-        // Check if jQuery is loaded
         if (typeof jQuery == 'undefined') {
             console.error('jQuery is not loaded!');
         } else {
             console.log('jQuery is loaded!');
         }
 
-        // Check if Bootstrap is loaded
         if (typeof bootstrap == 'undefined') {
             console.error('Bootstrap is not loaded!');
         } else {
             console.log('Bootstrap is loaded!');
         }
 
-        // Check if Bootstrap Datepicker is loaded
         if (typeof $.fn.datepicker == 'undefined') {
             console.error('Bootstrap Datepicker is not loaded!');
         } else {
             console.log('Bootstrap Datepicker is loaded!');
         }
 
-        // Initialize Datepicker
         $('.date input').datepicker({
             autoclose: true,
             format: 'dd/mm/yyyy'
         });
     });
     function generatePDF(event) {
-    // Prevent the default form submission behavior
     event.preventDefault();
 
-    // Close the modal
     $('#exampleModalCenter').modal('hide');
 
-    // Call your Livewire function to fetch and update data
     Livewire.emit('checkSortBy');
 
-    // Delay to wait for Livewire to update data
     setTimeout(function () {
-        // Assuming Livewire has updated the data, proceed to generate PDF
         const cardContent = document.getElementById('card-content').innerHTML;
 
-        // Create a Blob from the HTML content
         const blob = new Blob([`<div style="max-width: 800px; margin:0 auto;">${cardContent}</div>`], {
             type: 'text/html'
         });
@@ -553,9 +511,8 @@
         // Clean up by revoking the object URL
         window.URL.revokeObjectURL(url);
 
-        // Remove the <a> element from the document
         document.body.removeChild(a);
-    }, 1000); // Increase the delay if needed
+    }, 1000); 
 }
 
 

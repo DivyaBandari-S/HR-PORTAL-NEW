@@ -272,7 +272,7 @@ a {
         background: none;
         border: none;
         color:#778899;
-        font-size:1.6rem;
+        font-size:12px;
         margin-top: -6px;
         cursor: pointer;
     }
@@ -1005,8 +1005,8 @@ box-sizing: border-box;
 .fa-info-circle:hover {
     text-decoration: underline;
 }
-.circles.IRIS {
-        background-color: #d29be1;
+.pri-circle.IRIS {
+        background-color: #000;
     }
 
 
@@ -1369,11 +1369,11 @@ pointer-events: none;
 
 
         <div class="row m-0">
-            <div class="col-md-7">
+            <div class="col-md-7 m-0 p-0">
                 <div class="d-flex justify-content-between align-items-center">
                     <div class="calendar-heading-container">
                         <button wire:click="previousMonth" class="nav-btn">&lt; Prev</button>
-                        <h3>{{ \Carbon\Carbon::createFromDate($year, $month, 1)->format('F Y') }}</h3>
+                        <h3 style="font-size:16px;font-weight:500;">{{ \Carbon\Carbon::createFromDate($year, $month, 1)->format('F Y') }}</h3>
                         <button wire:click="nextMonth" class="nav-btn">Next &gt;</button>
                     </div>
                 </div>
@@ -1417,19 +1417,17 @@ pointer-events: none;
                                         @else
                                         {{ str_pad($day['day'], 2, '0', STR_PAD_LEFT) }}
                                         @endif
-                                        <div class="circles{{ $day['isPublicHoliday'] ? 'IRIS' : '' }}">
+                                        <div class="pri-circle{{ $day['isPublicHoliday'] ? 'IRIS' : '' }}">
 
                                             <!-- Render your content -->
                                         </div>
 
-                                        <div class="{{ $isWeekend ? '' : 'circle-grey' }}">
+                                        <div class="{{ $isWeekend ? '' : 'circles-grey' }}">
                                             <!-- Render your grey circle -->
                                             @if ($isWeekend)
                                             <i class="fas fa-tv" style="float:right;padding-left:12px;margin-top:-15px;"></i>
 
                                             <span style="text-align:center;color: #7f8fa4;  padding-left:21px;padding-right:26px;margin-left: 6px;white-space: nowrap;">
-
-
                                                 O
                                             </span>
                                             @elseif($isCurrentMonth)

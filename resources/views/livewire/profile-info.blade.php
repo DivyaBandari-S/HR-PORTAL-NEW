@@ -2,7 +2,6 @@
 
     <div class="row">
 
-
         <div class="card" style="width: auto; margin-left: 18%;padding:5px">
             <ul class="nav custom-nav-tabss"> <!-- Apply the custom class to the nav -->
                 <li class="nav-item-pi flex-grow-1">
