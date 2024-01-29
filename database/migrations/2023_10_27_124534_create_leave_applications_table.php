@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('leave_applies', function (Blueprint $table) {
+        Schema::create('leave_applications', function (Blueprint $table) {
             $table->id();
             $table->string('emp_id');
             $table->enum('leave_type', ['Causal Leave Probation ', 'Maternity Leave', 'Loss Of Pay','Sick Leave'],255);

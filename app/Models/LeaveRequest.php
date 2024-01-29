@@ -10,7 +10,7 @@ use App\Models\EmployeeDetails;
 class LeaveRequest extends Model
 {
     use HasFactory;
-    protected $table = 'leave_applies';
+    protected $table = 'leave_applications';
     protected $fillable = [
         'emp_id',
         'leave_type',
@@ -23,7 +23,6 @@ class LeaveRequest extends Model
         'contact_details',
         'reason',  
         'file_paths'
-        // Add other fields that you want to be fillable here
     ];
   
 
